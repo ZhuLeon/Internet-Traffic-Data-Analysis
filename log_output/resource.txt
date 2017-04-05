@@ -1,0 +1,10 @@
+/shuttle/missions/sts-53/movies/sts-53-launch.mpg,1269716
+/shuttle/missions/sts-71/movies/sts-71-launch.mpg,1121554
+/shuttle/missions/sts-71/movies/sts-71-hatch-hand-group.mpg,1081049
+/shuttle/missions/sts-71/movies/sts-71-mir-dock.mpg,946425
+/shuttle/missions/sts-71/movies/sts-71-tcdt-crew-walkout.mpg,887988
+/shuttle/missions/sts-71/movies/sts-71-hatch-open.mpg,852121
+/shuttle/missions/sts-71/movies/sts-71-mir-dock-2.mpg,835394
+/shuttle/missions/sts-71/movies/crew-suitup.mpg,614799
+/shuttle/missions/sts-71/movies/sts-71-launch-2.mpg,543680
+/shuttle/missions/sts-71/movies/crew-arrival.mpg,516688

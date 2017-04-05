@@ -1,0 +1,10 @@
+in24.inetnebr.com - - [01/Aug/1995:00:00:01 -0400] "GET /shuttle/missions/sts-68/news/sts-68-mcc-05.txt HTTP/1.0" 200 1839
+208.271.69.50 - - [01/Aug/1995:00:00:02 -0400] "POST /login HTTP/1.0" 401 1234
+208.271.69.50 - - [01/Aug/1995:00:00:03 -0400] "POST /login HTTP/1.0" 401 1235
+208.271.69.50 - - [01/Aug/1995:00:00:04 -0400] "POST /login HTTP/1.0" 401 1236
+208.271.69.50 - - [01/Aug/1995:00:00:05 -0400] "POST /login HTTP/1.0" 200 1237
+208.271.69.50 - - [01/Aug/1995:00:00:06 -0400] "POST /login HTTP/1.0" 401 1238
+208.271.69.50 - - [01/Aug/1995:00:05:05 -0400] "POST /login HTTP/1.0" 401 1239
+uplherc.upl.com - - [01/Aug/1995:00:06:07 -0400] "GET / HTTP/1.0" 304 0
+uplherc.upl.com - - [01/Aug/1995:00:06:08 -0400] "GET /images/ksclogo-medium.gif HTTP/1.0" 304 0
+uplherc.upl.com - - [01/Aug/1995:00:06:09 -0400] "GET /images/ksclogo-medium.gif HTTP/1.0" 200 0
