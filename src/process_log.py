@@ -1,12 +1,12 @@
-# Leon Zhu
-
 import sys
 import re
 import operator
 import datetime
 
+
 def process_log():
-    with open(sys.argv[1], encoding="utf-8") as inlog:
+    # TODO: bug with utf-8 encoding when reading in line 27617 but now error on line 2401515
+    with open(sys.argv[1], encoding="windows-1252") as inlog:
 
         # Initialize
         db_host = dict()
@@ -21,21 +21,29 @@ def process_log():
 
         # Iterate through each line in file
         for line in inlog:
-            # TODO: bug with reading in line 276176 somehow
             # Parse each line using Regex
-            # ip = re.search(r'[0-9]+(?:\.[0-9]+){3}', line).group()
-            # prit(line_count)n
+            # TODO: Put in some error checking for all this regex
+            # print(line_count)
+            # try:
             host = re.search('(^.*)(?:\s-\s-)', line).group(1)
             timestamp = re.search(('(([0-9])|([0-2][0-9])|([3][0-1]))/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}'
                                    ':([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]'
-                                   '\s(?:\+|-)(?:\d{4}|\d{3})'), line).group()
+                                   '\s(?:\+|-)(?:\d{4})'), line).group()
             request = re.search('\".*\"', line).group()
-            resource = re.search('(/[^\s]+)(?:[^\S\x0a\x0d])|(/(?:[^\S\x0a\x0d]))|(/[^\s\"]+\.[^0-9\"]+)|(/\")', request).group(1)
+            if request.find(" HTTP/") != -1 and request.find(" HTTPS/") != -1:
+                resource = re.search('(/[^\s\"]*)', request).group(1)
+                # https://regex101.com/r/7gqYoU/1
+            elif request.find(" HTTP/") > 0 or request.find(" HTTPS/") > 0:
+                # resource = re.search('(/[^\s]+)(?:[^\S\x0a\x0d])|(/(?:[^\S\x0a\x0d]))|(/[^\s\"]+\.[^0-9\"]+)|(/\")|(/[^\s\"\.]+[^\"\.]+)', request).group(1)
+                response = re.search('(?:GET[\s]|POST[\s]|HEAD[\s])(.*)(?:\sHTTP)', request).group(1)
+                # https://regex101.com/r/Zd3JuX/1
             response = re.search('(?:\"\s)(\d{3})', line).group(1)
-            bytes_amt = re.search('(?:\s\d{3}\s)([0-9-]*)', line).group(1)
+            bytes_amt = re.search('(?:\"\s\d{3}\s)([0-9-]*)', line).group(1)
+            # except:
+            #    print(line_count)
 
-            if bytes_amt == '-':
-                bytes_amt = 0
+            if bytes_amt == "-":
+                bytes_amt = "0"
 
             # Feature 1 logic
             if host in db_host:
@@ -129,3 +137,5 @@ process_log()
 
 # Pycharm script parameters:
 # "./log_input/log.txt" "./log_output/host.txt" "./log_output/resource.txt" "./log_output/hours.txt" "./log_output/blocked.txt"
+
+__author__ = "Leon Zhu"
