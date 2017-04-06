@@ -6,7 +6,7 @@ import datetime
 
 def process_log():
     # TODO: bug with utf-8 encoding when reading in line 27617 but now error on line 2401515
-    with open(sys.argv[1], encoding="windows-1252") as inlog:
+    with open(sys.argv[1]) as inlog:
 
         # Initialize
         db_host = dict()
@@ -23,7 +23,6 @@ def process_log():
         for line in inlog:
             # Parse each line using Regex
             # TODO: Put in some error checking for all this regex
-            # print(line_count)
             # try:
             host = re.search('(^.*)(?:\s-\s-)', line).group(1)
             timestamp = re.search(('(([0-9])|([0-2][0-9])|([3][0-1]))/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/\d{4}'
@@ -32,11 +31,8 @@ def process_log():
             request = re.search('\".*\"', line).group()
             if request.find(" HTTP/") != -1 and request.find(" HTTPS/") != -1:
                 resource = re.search('(/[^\s\"]*)', request).group(1)
-                # https://regex101.com/r/7gqYoU/1
             elif request.find(" HTTP/") > 0 or request.find(" HTTPS/") > 0:
-                # resource = re.search('(/[^\s]+)(?:[^\S\x0a\x0d])|(/(?:[^\S\x0a\x0d]))|(/[^\s\"]+\.[^0-9\"]+)|(/\")|(/[^\s\"\.]+[^\"\.]+)', request).group(1)
-                response = re.search('(?:GET[\s]|POST[\s]|HEAD[\s])(.*)(?:\sHTTP)', request).group(1)
-                # https://regex101.com/r/Zd3JuX/1
+                resource = re.search('(?:GET[\s]|POST[\s]|HEAD[\s])(.*)(?:\sHTTP)', request).group(1)
             response = re.search('(?:\"\s)(\d{3})', line).group(1)
             bytes_amt = re.search('(?:\"\s\d{3}\s)([0-9-]*)', line).group(1)
             # except:
@@ -100,19 +96,6 @@ def process_log():
         sorted_host = sorted(db_host.items(), key=operator.itemgetter(1), reverse=True)
         sorted_resource = sorted(db_resources.items(), key=operator.itemgetter(1), reverse=True)
         sorted_hours = sorted(db_hours.items(), key=operator.itemgetter(1), reverse=True)
-        # print(host)
-        # print(timestamp)
-        # print(request)
-        # print(response)
-        # print(bytes_amt)
-        # print(db_host)
-        # test = datetime.datetime.strptime("01/Jul/1995:00:01:02 -0400", "%d/%b/%Y:%H:%M:%S %z")
-        # print(db_hours)
-        # print(db_tracking)
-        # print(db_blocked)
-        # print(sorted_host)
-        # print(sorted_resource)
-        # print(sorted_hours)
 
     with open(sys.argv[2], 'w+') as outfile:
         for row in range(10):
