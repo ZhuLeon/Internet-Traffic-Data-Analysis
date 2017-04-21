@@ -1,48 +1,18 @@
-<<<<<<< HEAD
 # Table of Contents
-1. [Challenge Summary](README.md#challenge-summary)
+1. [Summary](README.md#summary)
 2. [Details of Implementation](README.md#details-of-implementation)
 3. [Download Data](README.md#download-data)
 4. [Description of Data](README.md#description-of-data)
-5. [Testing your directory structure and output format](README.md#testing-your-directory-structure-and-output-format)
-=======
-Dear Reader, there are some issues with encoding in log.txt
 
-When reading the file with encoding set to `utf-8`, it will read up to line 27617  
-```with open(sys.argv[1], encoding="utf-8") as inlog:```
->>>>>>> 1f4d93338d902d61e2029cf3307c2e42fcc07106
-
-When reading the file with encoding set to `windows-1252`, it will read up to line 2401515  
-`with open(sys.argv[1], encoding="windows-1252") as inlog:`
-
-<<<<<<< HEAD
-Picture yourself as a backend engineer for a NASA fan website that generates a large amount of Internet traffic data. Your challenge is to perform basic analytics on the server log file, provide useful metrics, and implement basic security measures. This dataset is inspired by real NASA web traffic, which is very similar to server logs from e-commerce and other sites. Monitoring web traffic and providing these analytics is a real business need.
-
-The desired features are described below: 
-
-### Feature 1: 
-List the top 10 most active host/IP addresses that have accessed the site.
-
-### Feature 2: 
-Identify the 10 resources that consume the most bandwidth on the site
-
-### Feature 3:
-List the top 10 busiest (or most frequently visited) 60-minute periods 
-
-### Feature 4: 
-Detect patterns of three failed login attempts from the same IP address over 20 seconds so that all further attempts to the site can be blocked for 5 minutes. Log those possible security breaches.
+# Summary
+Suppose we have a NASA fan website that generates a large amount of Internet traffic data. We will perform basic analytics on the server log file, provide useful metrics, and implement basic security measures. This dataset is inspired by real NASA web traffic, which is very similar to server logs from e-commerce and other sites. Monitoring web traffic and providing these analytics is a real business need.
 
 ## Details of Implementation
-With this coding challenge, you should demonstrate a strong understanding of computer science fundamentals. We won't be wowed by your knowledge of various available software libraries, but will be impressed by your ability to pick and use the best data structures and algorithms for the job.
-
-We're looking for clean, well-thought-out code that correctly implements the desired features in an optimized way and highlights your ability to write production-quality code.
-
-We also want to see how you use your programming skills to solve business problems. At a minimum, you should implement the four required features, but feel free to expand upon this challenge or add other features you think would prevent fraud and further business goals. Be sure to document these add-ons so we know to look for them.
 
 ### Feature 1 
-List in descending order the top 10 most active hosts/IP addresses that have accessed the site.
+Lists in descending order the top 10 most active hosts/IP addresses that have accessed the site.
 
-Write to a file, named `hosts.txt`, the 10 most active hosts/IP addresses in descending order and how many times they have accessed any part of the site. There should be at most 10 lines in the file, and each line should include the host (or IP address) followed by a comma and then the number of times it accessed the site. 
+The output is written to a file, named `hosts.txt`. We list the 10 most active hosts/IP addresses in descending order and how many times they have accessed any part of the site.
 
 e.g., `hosts.txt`:
 
@@ -53,9 +23,9 @@ e.g., `hosts.txt`:
 
 
 ### Feature 2 
-Identify the top 10 resources on the site that consume the most bandwidth. Bandwidth consumption can be extrapolated from bytes sent over the network and the frequency by which they were accessed.
+Identifies the top 10 resources on the site that consume the most bandwidth. Bandwidth consumption can be extrapolated from bytes sent over the network and the frequency by which they were accessed.
 
-These most bandwidth-intensive resources, sorted in descending order and separated by a new line, should be written to a file called `resources.txt`
+The most bandwidth-intensive resources, sorted in descending order, is written to a file called `resources.txt`.
 
 
 e.g., `resources.txt`:
@@ -67,9 +37,9 @@ e.g., `resources.txt`:
 
 
 ### Feature 3 
-List in descending order the site’s 10 busiest (i.e. most frequently visited) 60-minute period.
+Lists in descending order the site’s 10 busiest (i.e. most frequently visited) 60-minute period.
 
-Write to a file named `hours.txt`, the start of each 60-minute window followed by the number of times the site was accessed during that time period. The file should contain at most 10 lines with each line containing the start of each 60-minute window, followed by a comma and then the number of times the site was accessed during those 60 minutes. The 10 lines should be listed in descending order with the busiest 60-minute window shown first. 
+Written to a file named `hours.txt`, the start of each 60-minute window followed by the number of times the site was accessed during that time period. The file contains the start of each 60-minute window, followed by a comma and then the number of times the site was accessed during those 60 minutes. The 10 lines are listed in descending order with the busiest 60-minute window shown first. 
 
 e.g., `hours.txt`:
 
@@ -80,11 +50,9 @@ e.g., `hours.txt`:
     …
 
 ### Feature 4 
-Your final task is to detect patterns of three consecutive failed login attempts over 20 seconds in order to block all further attempts to reach the site from the same IP address for the next 5 minutes. Each attempt that would have been blocked should be written to a log file named `blocked.txt`.
+Detects patterns of three consecutive failed login attempts over 20 seconds in order to block all further attempts to reach the site from the same IP address for the next 5 minutes. Each attempt that would have been blocked is written to a file named `blocked.txt`.
 
-The site’s fictional owners don’t expect you to write the actual web server code to block the attempt, but rather want to gauge how much of a problem these potential security breaches represent. 
-
-Detect three failed login attempts from the same IP address over a consecutive 20 seconds, and then write to the `blocked.txt` file any subsequent attempts to reach the site from the same IP address over the next 5 minutes. 
+After detecting three failed login attempts from the same IP address over a consecutive 20 seconds, we then write to the `blocked.txt` file any subsequent attempts to reach the site from the same IP address over the next 5 minutes. 
 
 For example, if the third consecutive failed login attempt within a 20 second window occurred on `01/Aug/1995:00:00:08`, all access to the website for that IP address would be blocked for the next 5 minutes. Even if the same IP host attempted a login -- successful or or not -- one minute later at `01/Aug/1995:00:01:08`, that attempt should be ignored and logged to the `blocked.txt` file. Access to the site from that IP address would be allowed to resume at `01/Aug/1995:00:05:09`.
 
@@ -104,10 +72,8 @@ The following illustration may help you understand how this feature might work, 
 ![Feature 4 illustration](images/feature4.png)
 
 
-Note that this feature should not impact the other features in this challenge. For instance, any requests that end up in the `blocked.txt` file should be counted toward the most active IP host calculation, bandwidth consumption and busiest 60-minute period.
-
 ## Download Data
-You can download the data here: https://drive.google.com/file/d/0B7-XWjN4ezogbUh6bUl1cV82Tnc/view
+The original data is too large to upload so I have instead included a smaller subset.
 
 ## Description of Data
 
@@ -134,33 +100,3 @@ e.g., `log.txt`
     ...
     
 In the above example, the third line shows a failed login (HTTP reply code of 401) followed by a successful login (HTTP reply code of 200) two seconds later from the same IP address.
-
-## Testing your directory structure and output format
-
-To make sure that your code has the correct directory structure and the format of the output files are correct, we included a test script, called `run_tests.sh` in the `insight_testsuite` folder.
-
-The tests are stored simply as text files under the `insight_testsuite/tests` folder. Each test should have a separate folder and within should have a `log_input` folder for `log.txt` and a `log_output` folder for outputs corresponding to the current test.
-
-You can run the test with the following from the `insight_testsuite` folder:
-
-    insight_testsuite~$ ./run_tests.sh 
-
-On a failed test, the output of `run_tests.sh` should look like:
-
-    [FAIL]: test_features (hosts.txt)
-    [FAIL]: test_features (resources.txt)
-    [PASS]: test_features (hours.txt)
-    [FAIL]: test_features (blocked.txt)
-    [Thu Mar 30 16:28:01 PDT 2017] 1 of 4 tests passed
-
-On success:
-
-    [PASS]: test_features (hosts.txt)
-    [PASS]: test_features (resources.txt)
-    [PASS]: test_features (hours.txt)
-    [PASS]: test_features (blocked.txt)
-    [Thu Mar 30 16:25:57 PDT 2017] 4 of 4 tests passed
-=======
-When reading the file with `errors="ignore"`, it complete successfully  
-`with open(sys.argv[1], encoding="utf-8", errors="ignore") as inlog:`
->>>>>>> 1f4d93338d902d61e2029cf3307c2e42fcc07106
