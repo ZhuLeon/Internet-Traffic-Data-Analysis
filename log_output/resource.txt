@@ -1,10 +1,10 @@
+/statistics/1995/bkup/Mar95_full.html,2957312
+/mdss/ped/acs/SDP.ps,2854989
+/statistics/1995/May/May95_reverse_domains.html,1975581
+/statistics/1995/Apr/Apr95_reverse_domains.html,1724752
+/statistics/1995/Apr/Apr95_reverse_domains.html  ,1724752
 /shuttle/missions/sts-53/movies/sts-53-launch.mpg,1269716
-/shuttle/missions/sts-71/movies/sts-71-launch.mpg,1121554
-/shuttle/missions/sts-71/movies/sts-71-hatch-hand-group.mpg,1081049
-/shuttle/missions/sts-71/movies/sts-71-mir-dock.mpg,946425
-/shuttle/missions/sts-71/movies/sts-71-tcdt-crew-walkout.mpg,887988
-/shuttle/missions/sts-71/movies/sts-71-hatch-open.mpg,852121
-/shuttle/missions/sts-71/movies/sts-71-mir-dock-2.mpg,835394
-/shuttle/missions/sts-71/movies/crew-suitup.mpg,614799
-/shuttle/missions/sts-71/movies/sts-71-launch-2.mpg,543680
-/shuttle/missions/sts-71/movies/crew-arrival.mpg,516688
+/shuttle/missions/sts-67/sounds/DurranceST.wav,1188908
+/shuttle/missions/sts-70/movies/sts-70-crew-arrival.mpg,1182717
+/statistics/1995/bkup/Jan95_full.html  ,1169007
+/statistics/1995/bkup/Jan95_full.html,1169007

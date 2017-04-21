@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 # Table of Contents
 1. [Challenge Summary](README.md#challenge-summary)
 2. [Details of Implementation](README.md#details-of-implementation)
 3. [Download Data](README.md#download-data)
 4. [Description of Data](README.md#description-of-data)
 5. [Testing your directory structure and output format](README.md#testing-your-directory-structure-and-output-format)
+=======
+Dear Reader, there are some issues with encoding in log.txt
 
-# Challenge Summary
+When reading the file with encoding set to `utf-8`, it will read up to line 27617  
+```with open(sys.argv[1], encoding="utf-8") as inlog:```
+>>>>>>> 1f4d93338d902d61e2029cf3307c2e42fcc07106
 
+When reading the file with encoding set to `windows-1252`, it will read up to line 2401515  
+`with open(sys.argv[1], encoding="windows-1252") as inlog:`
+
+<<<<<<< HEAD
 Picture yourself as a backend engineer for a NASA fan website that generates a large amount of Internet traffic data. Your challenge is to perform basic analytics on the server log file, provide useful metrics, and implement basic security measures. This dataset is inspired by real NASA web traffic, which is very similar to server logs from e-commerce and other sites. Monitoring web traffic and providing these analytics is a real business need.
 
 The desired features are described below: 
@@ -151,3 +160,7 @@ On success:
     [PASS]: test_features (hours.txt)
     [PASS]: test_features (blocked.txt)
     [Thu Mar 30 16:25:57 PDT 2017] 4 of 4 tests passed
+=======
+When reading the file with `errors="ignore"`, it complete successfully  
+`with open(sys.argv[1], encoding="utf-8", errors="ignore") as inlog:`
+>>>>>>> 1f4d93338d902d61e2029cf3307c2e42fcc07106
