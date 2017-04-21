@@ -56,8 +56,10 @@ def process_log():
             # Feature 3 logic
             compare_time = datetime.datetime.strptime(timestamp, "%d/%b/%Y:%H:%M:%S %z")
             diff = compare_time - interval_time
+            # Check the current time is greater than the time(key) and the difference is less than 60 seconds
             if compare_time >= interval_time and diff <= datetime.timedelta(seconds=60) and interval_time in db_hours:
                 db_hours[interval_time] += 1
+            # If the difference is greater than 60 seconds create a new time(key)
             elif compare_time > interval_time and diff > datetime.timedelta(seconds=60):
                 interval_time = compare_time
                 db_hours[interval_time] = 1
